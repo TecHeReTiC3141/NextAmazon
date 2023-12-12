@@ -20,6 +20,9 @@ const config: Config = {
                     "success": "#5eb82e",
                     "warning": "#d39900",
                     "error": "#ff0048",
+                    body: {
+                        "background-color": "#1f2937",
+                    }
                 },
                 lightTheme: {
                     "primary": "#3b82f6",
@@ -31,6 +34,9 @@ const config: Config = {
                     "success": "#00c892",
                     "warning": "#ea580c",
                     "error": "#f43f5e",
+                    body: {
+                        "background-color": "#fff2f1",
+                    }
                 },
             },
         ],
