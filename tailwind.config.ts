@@ -15,13 +15,13 @@ const config: Config = {
                     "secondary": "#009800",
                     "accent": "#00f800",
                     "neutral": "#050701",
-                    "base-100": "#2d1f2a",
+                    "base-100": "#312b2c",
                     "info": "#27cdff",
                     "success": "#5eb82e",
                     "warning": "#d39900",
                     "error": "#ff0048",
                     body: {
-                        "background-color": "#1f2937",
+                        "background-color": "#191f2b",
                     }
                 },
                 lightTheme: {
