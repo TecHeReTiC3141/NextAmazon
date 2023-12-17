@@ -15,7 +15,6 @@ async function addProduct(formData: FormData) {
         description = formData.get("description")?.toString() || "",
         imageUrl = formData.get("image-url")?.toString() || "",
         price = Number(formData.get("price") || 0);
-
     if (!name || !description || !price || !imageUrl) {
         throw Error("Missing required fields");
     }

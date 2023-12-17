@@ -7,6 +7,7 @@ const config: Config = {
         './app/**/*.{js,ts,jsx,tsx,mdx}',
     ],
     plugins: [require("daisyui")],
+    darkMode: "class",
     daisyui: {
         themes: [
             {
@@ -25,11 +26,11 @@ const config: Config = {
                     }
                 },
                 lightTheme: {
-                    "primary": "#3b82f6",
+                    "primary": "#619df4",
                     "secondary": "#00d440",
                     "accent": "#047857",
                     "neutral": "#0c1109",
-                    "base-100": "#fff2f1",
+                    "base-100": "#e6dfde",
                     "info": "#00e1ff",
                     "success": "#00c892",
                     "warning": "#ea580c",
