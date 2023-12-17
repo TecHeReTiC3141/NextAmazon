@@ -1,5 +1,8 @@
 import {Metadata} from "next";
 import prisma from "@/app/lib/db/prisma"
+import {redirect} from "next/navigation";
+import SubmitBtn from "@/app/ui/components/SubmitBtn";
+
 
 export const metadata: Metadata = {
     title: "Add product",
@@ -7,11 +10,11 @@ export const metadata: Metadata = {
 
 async function addProduct(formData: FormData) {
     "use server"
-
+    // await new Promise(resolve => setTimeout(resolve, 3000));
     const name = formData.get("name")?.toString() || "",
         description = formData.get("description")?.toString() || "",
-        imageUrl = formData.get("price")?.toString() || "",
-        price = Number(formData.get("imageURL") || 0);
+        imageUrl = formData.get("image-url")?.toString() || "",
+        price = Number(formData.get("price") || 0);
 
     if (!name || !description || !price || !imageUrl) {
         throw Error("Missing required fields");
@@ -22,6 +25,7 @@ async function addProduct(formData: FormData) {
             name, description, imageUrl, price
         }
     });
+    redirect("/");
 }
 
 export default async function CreateProductPage() {
@@ -54,7 +58,7 @@ export default async function CreateProductPage() {
                        id="price"
                        placeholder="Price"
                        className="input input-bordered mb-3 last:mb-0"/>
-                <button type="submit" className="btn btn-primary">Add Product</button>
+                <SubmitBtn className="btn-block">Add product</SubmitBtn>
             </form>
         </div>
     );
