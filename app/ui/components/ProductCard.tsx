@@ -11,6 +11,7 @@ interface ProductCardProps {
 
 export default function ProductCard({product}: ProductCardProps) {
     const isNew = Date.now() - new Date(product.createdAt).getTime() <= 7 * 86400 * 1000;
+
     return (
         <Link href={`/products/${product.id}`} className="card w-full bg-base-100 hover:shadow-xl transition-shadow">
             <figure>
