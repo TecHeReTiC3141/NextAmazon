@@ -3,7 +3,9 @@ import {notFound} from "next/navigation";
 import Image from "next/image";
 import PriceTag from "@/app/ui/components/PriceTag";
 import {Metadata} from "next";
-import {cache} from "react";
+import {cache, Suspense} from "react";
+import AddToCartButton from "@/app/products/[id]/AddToCartButton";
+import { incrementProductQuantity } from "@/app/products/[id]/actions";
 
 interface ProductPageProps {
     params: {
@@ -56,6 +58,9 @@ export default async function ProductPage({
                 <h2 className="text-5xl font-bold">{product.name}</h2>
                 <PriceTag price={product.price} className="mt-4"/>
                 <p className="py-6">{product.description}</p>
+                <Suspense fallback={<button className="btn btn-primary">Adding...<span className="loading loading-md loading-spinner"></span></button>}>
+                    <AddToCartButton productId={product.id} incrementProductQuantity={incrementProductQuantity}/>
+                </Suspense>
             </div>
 
         </div>
