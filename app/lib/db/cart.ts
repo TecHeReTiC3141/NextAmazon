@@ -7,8 +7,8 @@ export type ShoppingCartWithProduct = Prisma.CartGetPayload<{
 }>;
 
 export type ShoppingCart = ShoppingCartWithProduct & {
-    size: Number,
-    subtotal: Number,
+    size: number,
+    subtotal: number,
 }
 
 export async function getCart(): Promise<ShoppingCart | null>  {
