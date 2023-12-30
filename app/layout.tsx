@@ -23,9 +23,9 @@ export default function RootLayout({children,}: {
             <Head>
                 <script src="https://kit.fontawesome.com/c9b4448de0.js" crossOrigin="anonymous"></script>
             </Head>
-            <body className={inter.className}>
+            <body className={inter.className + "min-h-screen"}>
                 <Header />
-                <main className="px-4 min-h-screen max-w-7xl min-w-[25rem] m-auto">
+                <main className="px-4  max-w-7xl min-w-[25rem] m-auto">
                     {children}
                 </main>
                 <Footer />

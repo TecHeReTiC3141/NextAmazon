@@ -6,6 +6,10 @@ export type ShoppingCartWithProduct = Prisma.CartGetPayload<{
     include: { items: { include: { product: true } } }
 }>;
 
+export type CartItemWithProduct = Prisma.CartItemGetPayload<{
+    include: { product: true },
+}>
+
 export type ShoppingCart = ShoppingCartWithProduct & {
     size: number,
     subtotal: number,
