@@ -7,6 +7,7 @@ const config: Config = {
         './app/**/*.{js,ts,jsx,tsx,mdx}',
     ],
     plugins: [require("daisyui")],
+    darkMode: "class",
     daisyui: {
         themes: [
             {
@@ -15,28 +16,28 @@ const config: Config = {
                     "secondary": "#009800",
                     "accent": "#00f800",
                     "neutral": "#050701",
-                    "base-100": "#2d1f2a",
+                    "base-100": "#312b2c",
                     "info": "#27cdff",
                     "success": "#5eb82e",
                     "warning": "#d39900",
                     "error": "#ff0048",
                     body: {
-                        "background-color": "#1f2937",
+                        "background-color": "#191f2b",
                     }
                 },
                 lightTheme: {
-                    "primary": "#3b82f6",
-                    "secondary": "#00d440",
-                    "accent": "#047857",
-                    "neutral": "#0c1109",
-                    "base-100": "#fff2f1",
-                    "info": "#00e1ff",
-                    "success": "#00c892",
-                    "warning": "#ea580c",
-                    "error": "#f43f5e",
+                    primary: "#f4aa3a",
+                    secondary: "#f4f4a1",
+                    accent: "#1be885",
+                    neutral: "#272136",
+                    "base-100": "#ffffff",
+                    info: "#778ad4",
+                    success: "#23b893",
+                    warning: "#f79926",
+                    error: "#ea535a",
                     body: {
-                        "background-color": "#fff2f1",
-                    }
+                        "background-color": "#e3e6e6",
+                    },
                 },
             },
         ],
