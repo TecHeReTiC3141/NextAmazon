@@ -11,7 +11,7 @@ type SubmitBtnProps = {
 export default function SubmitBtn({children, className, ...props}: SubmitBtnProps) {
     const {pending} = useFormStatus();
     return (
-        <button {...props} type="submit" disabled={pending} className={`btn btn-primary ${className}`}>
+        <button {...props} type="submit" disabled={props.disabled || pending} className={`btn btn-primary ${className}`}>
             {children}
             {pending && <span className="loading loading-spinner text-accent"></span>}
         </button>
