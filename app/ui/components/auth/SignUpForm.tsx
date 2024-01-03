@@ -1,26 +1,29 @@
 "use client"
 
-import {redirect} from "next/navigation";
-import {signIn} from "next-auth/react";
+import {redirect, useRouter} from "next/navigation";
+import {signIn, SignInResponse} from "next-auth/react";
 import {FormEvent, useState} from "react";
-import { useRouter } from 'next/navigation'
 
+interface SignUpFormProps {
+    signUpUser: (formData: FormData) => Promise<SignInResponse | undefined>
+}
 
-export default function CredentialsForm() {
+export default function SignUpForm({signUpUser}: SignUpFormProps) {
 
     const [error, setError] = useState("");
     const router = useRouter();
 
     async function handleSubmit(ev: FormEvent<HTMLFormElement>) {
-        setError("");
         ev.preventDefault();
+        setError("");
         const formData = new FormData(ev.currentTarget);
-
-        const signInResponse = await signIn("credentials", {
-            email: formData.get("email"),
-            password: formData.get("password"),
-            redirect: false,
-        });
+        let signInResponse;
+        try {
+            signInResponse = await signUpUser(formData);
+        } catch (err: any) {
+            setError(err.message);
+            return;
+        }
 
         if (signInResponse && !signInResponse.error) {
             router.push("/");
@@ -39,6 +42,15 @@ export default function CredentialsForm() {
           {error}
         </span>
             )}
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Username"
+                required
+                className="w-full px-4 py-4 mb-4 input input-bordered  rounded-md"
+            />
+
             <input
                 type="email"
                 name="email"
@@ -59,7 +71,7 @@ export default function CredentialsForm() {
                 type="submit"
                 className="w-full h-12 px-6 mt-4 text-lg btn btn-primary"
             >
-                Log in
+                Sign up
             </button>
         </form>
     )
