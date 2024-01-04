@@ -4,6 +4,7 @@ import './globals.css'
 import Header from "@/app/ui/components/Header";
 import Footer from "@/app/ui/components/Footer";
 import Head from "next/head";
+import SessionProvider from "@/app/ui/components/SessionProvider";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -15,21 +16,25 @@ export const metadata: Metadata = {
     description: 'We make your wallets cry',
 }
 
+// TODO: add progress bar
 export default function RootLayout({children,}: {
     children: React.ReactNode
 }) {
     return (
         <html lang="en">
-            <Head>
-                <script src="https://kit.fontawesome.com/c9b4448de0.js" crossOrigin="anonymous"></script>
-            </Head>
-            <body className={inter.className + "min-h-screen"}>
-                <Header />
+        <Head>
+            <script src="https://kit.fontawesome.com/c9b4448de0.js" crossOrigin="anonymous"></script>
+        </Head>
+        <body className={inter.className + "min-h-screen"}>
+            <SessionProvider>
+
+                <Header/>
                 <main className="px-4  max-w-7xl min-w-[25rem] m-auto">
                     {children}
                 </main>
-                <Footer />
-            </body>
+                <Footer/>
+            </SessionProvider>
+        </body>
         </html>
     )
 }

@@ -62,6 +62,7 @@ export default function CartEntry({cartItem: {product, quantity}, setProductQuan
                             {updateMode[0].toUpperCase() + updateMode.slice(1)}</SubmitBtn>
                         <button id="reset-btn" className="btn btn-ghost btn-sm" disabled={true} onClick={ev => {
                             ev.preventDefault();
+                            console.log("reset clicked");
                             const form = ev.currentTarget.parentElement;
                             if (!form) return;
                             const quantityInput = form.querySelector("#quantity") as HTMLInputElement;
