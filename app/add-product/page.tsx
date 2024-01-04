@@ -3,8 +3,7 @@ import prisma from "@/app/lib/db/prisma"
 import {redirect} from "next/navigation";
 import SubmitBtn from "@/app/ui/components/SubmitBtn";
 import {getServerSession} from "next-auth";
-import {authOptions} from "@/app/api/auth/[...nextauth]/route";
-
+import {authOptions} from "@/app/lib/configs/authOptions";
 
 export const metadata: Metadata = {
     title: "Add product",
