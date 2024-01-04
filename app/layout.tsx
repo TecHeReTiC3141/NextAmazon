@@ -24,7 +24,6 @@ export default function RootLayout({children,}: {
         <html lang="en">
         <body className={inter.className + "min-h-screen"}>
             <SessionProvider>
-
                 <Header/>
                 <main className="px-4  max-w-7xl min-w-[25rem] m-auto">
                     {children}
