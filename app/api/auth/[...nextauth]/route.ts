@@ -5,7 +5,6 @@ import {Adapter} from "next-auth/adapters";
 import GoogleProvider from "next-auth/providers/google";
 import GithubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
-import {User} from "@/app/lib/db/user";
 import {env} from "@/app/lib/env";
 import bcrypt from "bcrypt";
 import {mergeAnonymousCartIntoUsersCart} from "@/app/lib/db/cart";
