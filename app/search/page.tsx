@@ -1,10 +1,17 @@
 import prisma from "@/app/lib/db/prisma";
 import ProductsGrid from "@/app/ui/components/ProductsGrid";
 import {HERO_ITEM_COUNT as heroItemCount, PAGE_COUNT as pageSize} from "@/app/lib/gripParams";
+import {Metadata} from "next";
 
 
 interface SearchPageProps {
     searchParams: { query: string, page: string },
+}
+
+export function generateMetadata({searchParams: {query, page = "1"}}: SearchPageProps): Metadata {
+    return {
+        title: `Search "${query}"`,
+    }
 }
 
 export default async function SearchPage({searchParams: {query, page = "1"}}: SearchPageProps) {
