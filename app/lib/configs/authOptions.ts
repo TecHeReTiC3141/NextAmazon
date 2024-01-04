@@ -42,7 +42,6 @@ export const authOptions: NextAuthOptions = {
                 const user = await prisma.user.findFirst({
                     where: {email: credentials.email},
                 });
-                console.log("found user", user, await bcrypt.compare( credentials.password, user?.password || "",));
                 if (user && await bcrypt.compare( credentials.password, user.password || "")) {
                     const {id,  password, ...userFields} = user;
                     console.log("logged", user);
