@@ -2,6 +2,8 @@ import {Metadata} from "next";
 import prisma from "@/app/lib/db/prisma"
 import {redirect} from "next/navigation";
 import SubmitBtn from "@/app/ui/components/SubmitBtn";
+import {getServerSession} from "next-auth";
+import {authOptions} from "@/app/api/auth/[...nextauth]/route";
 
 
 export const metadata: Metadata = {
@@ -28,6 +30,11 @@ async function addProduct(formData: FormData) {
 }
 
 export default async function CreateProductPage() {
+    const session = await getServerSession(authOptions);
+    if (!session) {
+        redirect("/login?error=You need to log in first to access this page")
+    }
+
     return (
         <div className="min-h-screen ">
             <h1 className="text-xl mb-4 text-center font-bold">Add product</h1>

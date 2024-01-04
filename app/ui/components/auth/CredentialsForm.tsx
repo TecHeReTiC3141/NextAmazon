@@ -3,12 +3,13 @@
 import {redirect} from "next/navigation";
 import {signIn} from "next-auth/react";
 import {FormEvent, useState} from "react";
-import { useRouter } from 'next/navigation'
+import {useRouter, useSearchParams} from 'next/navigation'
 
 
 export default function CredentialsForm() {
 
-    const [error, setError] = useState("");
+    const searchParams = useSearchParams();
+    const [error, setError] = useState(searchParams.get("error") || "");
     const router = useRouter();
 
     async function handleSubmit(ev: FormEvent<HTMLFormElement>) {
@@ -31,13 +32,13 @@ export default function CredentialsForm() {
 
     return (
         <form
-            className="w-full mt-8 text-xl font-semibold flex flex-col"
+            className="mt-8 text-xl w-[20rem] font-semibold flex flex-col"
             onSubmit={ev => handleSubmit(ev)}
         >
             {error && (
-                <span className="p-4 mb-2 text-lg font-semibold text-white bg-red-500 rounded-md">
-          {error}
-        </span>
+                <p className="p-4 mb-2 text-lg font-semibold max-w-[20rem] text-white bg-red-500 rounded-md">
+                    {error}
+                </p>
             )}
             <input
                 type="email"

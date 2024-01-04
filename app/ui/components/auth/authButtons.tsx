@@ -6,7 +6,9 @@ import {signIn} from "next-auth/react";
 
 export function GoogleSignInButton() {
     const handleClick = async () => {
-        await signIn("google");
+        await signIn("google", {
+            callbackUrl: "/",
+        });
     };
 
     return (
@@ -23,7 +25,9 @@ export function GoogleSignInButton() {
 
 export function GithubSignInButton() {
     const handleClick = async () => {
-        await signIn("github");
+        await signIn("github", {
+            callbackUrl: "/",
+        });
     };
 
 
