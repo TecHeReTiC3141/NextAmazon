@@ -12,7 +12,6 @@ export const metadata: Metadata = {
 
 async function addProduct(formData: FormData) {
     "use server"
-    // await new Promise(resolve => setTimeout(resolve, 3000));
     const name = formData.get("name")?.toString() || "",
         description = formData.get("description")?.toString() || "",
         imageUrl = formData.get("image-url")?.toString() || "",
@@ -23,7 +22,7 @@ async function addProduct(formData: FormData) {
 
     await prisma.product.create({
         data: {
-            name, description, imageUrl, price
+            name, description, imageUrl, price: price / 100.,
         }
     });
     redirect("/");
@@ -62,7 +61,7 @@ export default async function CreateProductPage() {
                        type="number"
                        name="price"
                        id="price"
-                       placeholder="Price"
+                       placeholder="Price (in $)"
                        className="input input-bordered mb-3 last:mb-0"/>
                 <SubmitBtn className="btn-block">Add product</SubmitBtn>
             </form>

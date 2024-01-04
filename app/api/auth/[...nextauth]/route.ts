@@ -8,6 +8,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import {User} from "@/app/lib/db/user";
 import {env} from "@/app/lib/env";
 import bcrypt from "bcrypt";
+import {mergeAnonymousCartIntoUsersCart} from "@/app/lib/db/cart";
 
 
 export const authOptions: NextAuthOptions = {
@@ -56,8 +57,12 @@ export const authOptions: NextAuthOptions = {
         session({session, user}) {
             session.user.id = user.id;
             return session;
+        },
+    },
+    events: {
+        async signIn({user}) {
+            await mergeAnonymousCartIntoUsersCart(user.id);
         }
-
     }
 }
 

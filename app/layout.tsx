@@ -16,6 +16,7 @@ export const metadata: Metadata = {
     description: 'We make your wallets cry',
 }
 
+// TODO: add progress bar
 export default function RootLayout({children,}: {
     children: React.ReactNode
 }) {

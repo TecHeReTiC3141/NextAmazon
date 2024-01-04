@@ -96,7 +96,7 @@ export async function mergeAnonymousCartIntoUsersCart(userId: string) {
             const mergedItems = mergeCartItems(localCart.items, userCart.items);
 
             await tx.cartItem.deleteMany({
-                where: {cartId: localCart.id},
+                where: {cartId: userCart.id},
             });
 
             await tx.cartItem.createMany({
