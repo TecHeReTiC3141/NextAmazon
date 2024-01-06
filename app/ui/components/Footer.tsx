@@ -1,6 +1,7 @@
 import {FaDiscord, FaYoutube, FaTelegram} from "react-icons/fa6";
 import Image from "next/image";
 import logo from "@/app/assets/images/logo.png"
+import Link from "next/link";
 
 export default function Footer() {
     return (
@@ -14,9 +15,9 @@ export default function Footer() {
             </aside>
             <nav>
                 <div className="grid grid-flow-col gap-4">
-                    <FaDiscord className="w-6 h-6"/>
-                    <FaYoutube className="w-6 h-6"/>
-                    <FaTelegram className="w-6 h-6"/>
+                    <Link href=""><FaDiscord className="w-6 h-6"/></Link>
+                    <Link href="https://www.youtube.com/@timkiryachek9114/"><FaYoutube className="w-6 h-6"/></Link>
+                    <Link href="https://t.me/TecHeReTiC"><FaTelegram className="w-6 h-6"/></Link>
                 </div>
             </nav>
         </footer>

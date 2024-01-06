@@ -24,7 +24,7 @@ export default async function Header() {
     const session = await getServerSession(authOptions);
 
     return (
-        <div className="bg-base-100">
+        <div className="bg-primary">
 
             <header className="navbar m-auto max-w-7xl py-2 px-5 rounded-md mb-4 sticky top-0 z-10 max-lg:flex-col justify-between items-center">
 

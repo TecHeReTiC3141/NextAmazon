@@ -3,8 +3,8 @@ import {Inter} from 'next/font/google'
 import './globals.css'
 import Header from "@/app/ui/components/Header";
 import Footer from "@/app/ui/components/Footer";
-import Head from "next/head";
 import SessionProvider from "@/app/ui/components/SessionProvider";
+import {ProgressBar} from "@/app/ui/components/auth/ProgressBar";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -16,7 +16,6 @@ export const metadata: Metadata = {
     description: 'We make your wallets cry',
 }
 
-// TODO: add progress bar
 export default function RootLayout({children,}: {
     children: React.ReactNode
 }) {
@@ -29,6 +28,12 @@ export default function RootLayout({children,}: {
                     {children}
                 </main>
                 <Footer/>
+                <ProgressBar
+                    height="4px"
+                    color="#07cae3"
+                    options={{ showSpinner: true }}
+                    shallowRouting
+                />
             </SessionProvider>
         </body>
         </html>
