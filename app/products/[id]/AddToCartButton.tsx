@@ -7,7 +7,7 @@ interface AddToCartButtonProps {
     incrementProductQuantity: (productId: string) => Promise<void>,
 }
 
-export default async function AddToCartButton({productId, incrementProductQuantity}: AddToCartButtonProps) {
+export default function AddToCartButton({productId, incrementProductQuantity}: AddToCartButtonProps) {
     const [isPending, startTransition] = useTransition();
     const [success, setSuccess] = useState(false);
     return (
@@ -26,6 +26,7 @@ export default async function AddToCartButton({productId, incrementProductQuanti
                 </svg>
             </button>
             {!isPending && success && <span className="text-success">Added to cart</span>}
+            {isPending && <span className="loading loading-md text-primary loading-spinner"></span>}
         </div>
     )
 }
