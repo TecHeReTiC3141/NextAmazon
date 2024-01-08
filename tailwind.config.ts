@@ -41,6 +41,12 @@ const config: Config = {
                 },
             },
         ],
+        safelist: [
+            "alert-error",
+            "alert-info",
+            "alert-success",
+            "alert-warning",
+        ]
     },
 }
 export default config

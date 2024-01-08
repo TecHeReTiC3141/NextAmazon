@@ -2,9 +2,9 @@
 
 import {Session} from "next-auth";
 import Image from "next/image";
-import { FaUser, FaRegUser  } from "react-icons/fa";
+import { FaRegUser  } from "react-icons/fa";
 import profilePlaceholder from "@/app/assets/images/profile-pic-placeholder.png";
-import {signIn, signOut} from "next-auth/react";
+import {signOut} from "next-auth/react";
 import Link from "next/link"
 
 interface UserMenuButtonProps {

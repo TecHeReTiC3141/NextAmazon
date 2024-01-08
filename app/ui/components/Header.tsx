@@ -8,6 +8,7 @@ import {getCart} from "@/app/lib/db/cart";
 import UserMenuButton from "@/app/ui/components/UserMenuButton";
 import {getServerSession} from "next-auth";
 import {authOptions} from "@/app/lib/configs/authOptions";
+import MessageAlert from "@/app/ui/components/MessageAlert";
 
 async function searchProducts(formData: FormData) {
     "use server"
@@ -24,7 +25,7 @@ export default async function Header() {
     const session = await getServerSession(authOptions);
 
     return (
-        <div className="bg-primary">
+        <div className="bg-primary relative">
 
             <header className="navbar m-auto max-w-7xl py-2 px-5 rounded-md mb-4 sticky top-0 z-10 max-lg:flex-col justify-between items-center">
 
@@ -52,6 +53,9 @@ export default async function Header() {
                 </div>
 
             </header>
+            <div className="absolute top-[110%] right-2 w-[96vw] m-auto flex justify-end overflow-hidden">
+                <MessageAlert />
+            </div>
         </div>
     )
 }
