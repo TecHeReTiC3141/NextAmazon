@@ -30,7 +30,7 @@ async function addProduct(formData: FormData) {
 export default async function CreateProductPage() {
     const session = await getServerSession(authOptions);
     if (!session) {
-        redirect("/login?error=You need to log in first to access this page")
+        redirect("/login?message=You need to log in first to access this page&messageType=error")
     }
 
     return (

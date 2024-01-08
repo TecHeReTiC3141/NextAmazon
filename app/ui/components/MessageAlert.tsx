@@ -11,7 +11,7 @@ interface Marks {
 }
 
 export default function MessageAlert() {
-    const maxLifeTime = 10000;
+    const maxLifeTime = 5000;
 
     const [lifeTime, setLifeTime] = useState(maxLifeTime);
 
@@ -32,6 +32,10 @@ export default function MessageAlert() {
     }, []);
 
     useEffect(() => {
+        setLifeTime(maxLifeTime);
+    }, [searchParams]);
+
+    useEffect(() => {
         const alertWidth = document.querySelector("#alert")?.clientWidth;
         if (!alertWidth) return;
         const alertTimeLeft = document.querySelector("#alert-left-time") as HTMLElement;
@@ -43,9 +47,10 @@ export default function MessageAlert() {
         <>
             {message &&
                 <div id="alert"
-                    className={clsx(["alert alert-info z-30 overflow-hidden relative w-full sm:w-[30rem] flex gap-6 items-center transition-opacity duration-300 ease-linear",
+                    className={clsx(["alert alert-info z-30 overflow-hidden relative w-full sm:w-[30rem] flex gap-6 items-center transition-opacity" +
+                    " duration-300 ease-linear hover:shadow-xl shadow-gray-600 border border-black",
                         `alert-${messageType || "info"}`, lifeTime === 0 ? "opacity-0 pointer-events-none" : "opacity-100"])}
-                    onMouseOver={() => setLifeTime(maxLifeTime)}>
+                    onMouseEnter={() => setLifeTime(maxLifeTime)}>
                     {(marks as Marks)[messageType || "info"] || <FaCircleInfo className="text-xl"/>}
                     <p className="text-xl">{message}</p>
                     <div id="alert-left-time" className={clsx([`absolute bg-white h-1.5 bottom-0 left-0 z-40 w-full`])}></div>

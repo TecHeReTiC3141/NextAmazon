@@ -7,14 +7,14 @@ export default function Footer() {
     return (
         <footer className="footer footer-center mt-4 p-10 bg-primary text-primary-content">
             <aside>
-                <Image src={logo} alt="NextAmazon" width={50} />
+                <Image src={logo} alt="NextAmazon" width={60} className="p-3 bg-accent rounded-full bg-opacity-75" />
                 <p className="font-bold">
                     NextAmazon <br/>by TecHeReTiC with dedication
                 </p>
                 <p>Copyright © {new Date().getFullYear()}</p>
             </aside>
             <nav>
-                <div className="grid grid-flow-col gap-4">
+                <div className="grid grid-flow-col gap-4 bg-accent py-2 px-3 rounded-md -mt-2">
                     <Link href=""><FaDiscord className="w-6 h-6"/></Link>
                     <Link href="https://www.youtube.com/@timkiryachek9114/"><FaYoutube className="w-6 h-6"/></Link>
                     <Link href="https://t.me/TecHeReTiC"><FaTelegram className="w-6 h-6"/></Link>

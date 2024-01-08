@@ -26,7 +26,7 @@ export default function CredentialsForm() {
         if (signInResponse && !signInResponse.error) {
             router.push("/");
         } else {
-            setError("Check your email and password, maybe they are wrong");
+            router.push("login/?message=Check your email and password, maybe they are wrong&messageType=error");
         }
     }
 
@@ -35,11 +35,11 @@ export default function CredentialsForm() {
             className="mt-8 text-xl w-[20rem] font-semibold flex flex-col"
             onSubmit={ev => handleSubmit(ev)}
         >
-            {error && (
-                <p className="p-4 mb-2 text-lg font-semibold max-w-[20rem] text-white bg-red-500 rounded-md">
-                    {error}
-                </p>
-            )}
+            {/*{error && (*/}
+            {/*    <p className="p-4 mb-2 text-lg font-semibold max-w-[20rem] text-white bg-red-500 rounded-md">*/}
+            {/*        {error}*/}
+            {/*    </p>*/}
+            {/*)}*/}
             <input
                 type="email"
                 name="email"

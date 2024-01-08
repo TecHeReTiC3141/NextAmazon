@@ -29,9 +29,10 @@ export default async function Header() {
 
             <header className="navbar m-auto max-w-7xl py-2 px-5 rounded-md mb-4 sticky top-0 z-10 max-lg:flex-col justify-between items-center">
 
-                <nav className="flex gap-4 flex-1">
-                    <Link href="/" className="btn btn-ghost normal-case text-xl">
-                        <Image src={logo} alt="NextAmazon" width={40} />
+                <nav className="flex gap-4 flex-1 items-center">
+                    <Link href="/" className="btn btn-ghost normal-case text-xl group">
+                        <Image src={logo} alt="NextAmazon"
+                               className="bg-accent p-2 rounded-full w-12 bg-opacity-50 block group-hover:bg-opacity-75 transition-colors duration-100"/>
                         NextAmazon
                     </Link>
                     <Link href="/add-product">Add product</Link>
